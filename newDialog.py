@@ -34,21 +34,21 @@ class Ui_newDialog(object):
     
     def saveButtonPressed(self, newDialog):
         self.discordUser = discordPerson.discordPerson(self.username, self.pbLink, self.discordId)
-        self.save = true
-        self.fertig = true
+        self.save = True
+        self.fertig = True
         newDialog.close()
     
     def cancelButtonPressed(self, newDialog):
-        self.save = false
-        self.fertig = true
+        self.save = False
+        self.fertig = True
         newDialog.close()
     
     def setupUi(self, newDialog):
         newDialog.setObjectName("newDialog")
         newDialog.resize(541, 503)
         
-        self.save = false
-        self.fertig = false
+        self.save = False
+        self.fertig = False
         # DiscordPerson Variabeln xD
         self.discordId = "Default"
         self.pbLink = "Default"
