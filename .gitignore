@@ -1,0 +1,5 @@
+# Ignorieren von daten.
+
+__pycache__/
+*.pyc
+test.py
