@@ -238,7 +238,7 @@ class Ui_MainWindow(object):
         item = self.tblWidget_personen.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Username"))
         item = self.tblWidget_personen.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "PBLink"))
+        item.setText(_translate("MainWindow", "PB-Link"))
         __sortingEnabled = self.tblWidget_personen.isSortingEnabled()
         self.tblWidget_personen.setSortingEnabled(False)
         self.tblWidget_personen.setSortingEnabled(__sortingEnabled)
