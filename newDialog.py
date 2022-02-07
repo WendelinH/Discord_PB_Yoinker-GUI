@@ -21,19 +21,22 @@ class Ui_newDialog(object):
         self.discordId = self.lineEdit_discordId.text()
         try:
             self.pbLink, self.username = discordPBYoinker.getUrl(self.discordId)
+            self.pbImage = QtGui.QImage()
+            self.pbImage.loadFromData(requests.get(self.pbLink).content)
+            self.pbPixmap = QtGui.QPixmap(self.pbImage)
+            self.pbPixmap = self.pbPixmap.scaled(400, 400)
         except:
             print("PB-Link nicht herausgefunden.")
             self.pbLink = "https://img.freepik.com/free-vector/error-404-background_23-2148080813.jpg?size=338&ext=jpg"
+            self.pbPixmap = QtGui.QPixmap("img/error.png")
+            self.pbPixmap = self.pbPixmap.scaled(400, 400)
         
-        self.pbImage = QtGui.QImage()
-        self.pbImage.loadFromData(requests.get(self.pbLink).content)
-        self.pbPixmap = QtGui.QPixmap(self.pbImage)
-        self.pbPixmap = self.pbPixmap.scaled(400, 400)
         self.label_img.setPixmap(self.pbPixmap)
+        self.pbPixmap = self.pbPixmap.scaled(270, 270)
         self.btn_save.setEnabled(True)
     
     def saveButtonPressed(self, newDialog):
-        self.discordUser = discordPerson.discordPerson(self.username, self.pbLink, self.discordId)
+        self.discordUser = discordPerson.discordPerson(self.username, self.pbLink, self.discordId, self.pbPixmap)
         self.save = True
         self.fertig = True
         newDialog.close()
